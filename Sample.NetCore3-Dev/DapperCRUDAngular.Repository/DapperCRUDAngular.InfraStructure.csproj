@@ -1,0 +1,47 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Repository\AdBannerRepository.cs" />
+    <Compile Remove="Repository\ArtCategoryMasterRepository.cs" />
+    <Compile Remove="Repository\ArtDomEventRepository.cs" />
+    <Compile Remove="Repository\ArtistAchievementsRepository.cs" />
+    <Compile Remove="Repository\ArtistCategoryMasterRepository.cs" />
+    <Compile Remove="Repository\ArtProductImageRepository.cs" />
+    <Compile Remove="Repository\ArtProductRepository.cs" />
+    <Compile Remove="Repository\CartItemRepository.cs" />
+    <Compile Remove="Repository\ChatMessageRepository.cs" />
+    <Compile Remove="Repository\CMSRepository.cs" />
+    <Compile Remove="Repository\ContactUsEnquiryRepository.cs" />
+    <Compile Remove="Repository\ContactUsReplyRepository.cs" />
+    <Compile Remove="Repository\GeneralSettingsRepository.cs" />
+    <Compile Remove="Repository\MemberPortfolioRepository.cs" />
+    <Compile Remove="Repository\MemberRepository.cs" />
+    <Compile Remove="Repository\PaintingFrameRepository.cs" />
+    <Compile Remove="Repository\PriceZonesRepository.cs" />
+    <Compile Remove="Repository\RateAndReviewRepository.cs" />
+    <Compile Remove="Repository\SalesOrderRepository.cs" />
+    <Compile Remove="Repository\SearchKeywordRepository.cs" />
+    <Compile Remove="Repository\TiersRepository.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Dapper" Version="2.0.30" />
+    <PackageReference Include="Dapper.Contrib" Version="2.0.30" />
+    <PackageReference Include="FluentValidation" Version="10.3.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration" Version="3.1.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.FileExtensions" Version="3.1.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="3.1.0" />
+    <PackageReference Include="System.Data.SqlClient" Version="4.8.0" />
+    <PackageReference Include="WinSCP" Version="5.19.5" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\DapperCRUDAngular.Abstraction\DapperCRUDAngular.Abstraction.csproj" />
+    <ProjectReference Include="..\DapperCRUDAngular.Common\DapperCRUDAngular.Common.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,90 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.6.33513.286
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DapperCRUDAngular", "DapperCRUDAngular\DapperCRUDAngular.csproj", "{94C82B4B-D83B-4C3C-BC6D-19510A811334}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DapperCRUDAngular.Abstraction", "DapperCRUDAngular.Abstraction\DapperCRUDAngular.Abstraction.csproj", "{B544FAB1-2666-4EF0-BFC6-C7C226EB623D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DapperCRUDAngular.Common", "DapperCRUDAngular.Common\DapperCRUDAngular.Common.csproj", "{8BC7C127-AC6E-4345-B493-9F090A6D94C7}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DapperCRUDAngular.InfraStructure", "DapperCRUDAngular.Repository\DapperCRUDAngular.InfraStructure.csproj", "{D3BF3A55-2B15-4D11-B935-C98F26C975A2}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DapperCRUDAngular.Services", "DapperCRUDAngular.Services\DapperCRUDAngular.Services.csproj", "{5B1B9E80-8B55-45B4-91E3-468002802D2B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution", "Solution", "{C76021ED-CC4F-47AD-9D08-CC27F4A58DF6}"
+	ProjectSection(SolutionItems) = preProject
+		..\..\Angular CRUD.docx = ..\..\Angular CRUD.docx
+		..\..\Assignment_22-23.xlsx = ..\..\Assignment_22-23.xlsx
+		..\..\DataBase.sql = ..\..\DataBase.sql
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DapperCRUDAngular.Tests", "DapperCRUDAngular.Tests\DapperCRUDAngular.Tests.csproj", "{D6C996D2-DCB2-48EF-AF07-7BA939A4059A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DapperCRUDAngular.Services.Tests", "DapperCRUDAngular.Services.Tests\DapperCRUDAngular.Services.Tests.csproj", "{7CFB85A8-3939-4058-B8F4-DC2CF193B0E5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SonarQube", "SonarQube", "{37C60F5D-C58A-4DC3-BE8D-5D5D9CEFCD4C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Report", "Report", "{8E36635C-3EBE-4A1B-AC94-B6ACC7C92933}"
+	ProjectSection(SolutionItems) = preProject
+		C:\Users\rohit.rajput\Downloads\2023-04-06-DapperCRUDAngular-report\2023-04-06-DapperCRUDAngular-analysis-report.docx = C:\Users\rohit.rajput\Downloads\2023-04-06-DapperCRUDAngular-report\2023-04-06-DapperCRUDAngular-analysis-report.docx
+		C:\Users\rohit.rajput\Downloads\2023-04-06-DapperCRUDAngular-report\2023-04-06-DapperCRUDAngular-analysis-report.md = C:\Users\rohit.rajput\Downloads\2023-04-06-DapperCRUDAngular-report\2023-04-06-DapperCRUDAngular-analysis-report.md
+		C:\Users\rohit.rajput\Downloads\2023-04-06-DapperCRUDAngular-report\2023-04-06-DapperCRUDAngular-issues-report.csv = C:\Users\rohit.rajput\Downloads\2023-04-06-DapperCRUDAngular-report\2023-04-06-DapperCRUDAngular-issues-report.csv
+		C:\Users\rohit.rajput\Downloads\2023-04-06-DapperCRUDAngular-report\2023-04-06-DapperCRUDAngular-issues-report.xlsx = C:\Users\rohit.rajput\Downloads\2023-04-06-DapperCRUDAngular-report\2023-04-06-DapperCRUDAngular-issues-report.xlsx
+		C:\Users\rohit.rajput\Downloads\2023-04-06-DapperCRUDAngular-report\Dashboard_Consolidate.png = C:\Users\rohit.rajput\Downloads\2023-04-06-DapperCRUDAngular-report\Dashboard_Consolidate.png
+		C:\Users\rohit.rajput\Downloads\2023-04-06-DapperCRUDAngular-report\Dashboard_Detail.png = C:\Users\rohit.rajput\Downloads\2023-04-06-DapperCRUDAngular-report\Dashboard_Detail.png
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "conf", "conf", "{5AE215A6-6D46-4ECF-AF28-718E870FEFE4}"
+	ProjectSection(SolutionItems) = preProject
+		C:\Users\rohit.rajput\Downloads\2023-04-06-DapperCRUDAngular-report\conf\AYV8gjMk8-JvZVOAkYmx.xml = C:\Users\rohit.rajput\Downloads\2023-04-06-DapperCRUDAngular-report\conf\AYV8gjMk8-JvZVOAkYmx.xml
+		C:\Users\rohit.rajput\Downloads\2023-04-06-DapperCRUDAngular-report\conf\Sonar way.json = C:\Users\rohit.rajput\Downloads\2023-04-06-DapperCRUDAngular-report\conf\Sonar way.json
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{94C82B4B-D83B-4C3C-BC6D-19510A811334}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{94C82B4B-D83B-4C3C-BC6D-19510A811334}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{94C82B4B-D83B-4C3C-BC6D-19510A811334}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{94C82B4B-D83B-4C3C-BC6D-19510A811334}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B544FAB1-2666-4EF0-BFC6-C7C226EB623D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B544FAB1-2666-4EF0-BFC6-C7C226EB623D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B544FAB1-2666-4EF0-BFC6-C7C226EB623D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B544FAB1-2666-4EF0-BFC6-C7C226EB623D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8BC7C127-AC6E-4345-B493-9F090A6D94C7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8BC7C127-AC6E-4345-B493-9F090A6D94C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8BC7C127-AC6E-4345-B493-9F090A6D94C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8BC7C127-AC6E-4345-B493-9F090A6D94C7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D3BF3A55-2B15-4D11-B935-C98F26C975A2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D3BF3A55-2B15-4D11-B935-C98F26C975A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D3BF3A55-2B15-4D11-B935-C98F26C975A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D3BF3A55-2B15-4D11-B935-C98F26C975A2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5B1B9E80-8B55-45B4-91E3-468002802D2B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5B1B9E80-8B55-45B4-91E3-468002802D2B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5B1B9E80-8B55-45B4-91E3-468002802D2B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5B1B9E80-8B55-45B4-91E3-468002802D2B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D6C996D2-DCB2-48EF-AF07-7BA939A4059A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D6C996D2-DCB2-48EF-AF07-7BA939A4059A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D6C996D2-DCB2-48EF-AF07-7BA939A4059A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D6C996D2-DCB2-48EF-AF07-7BA939A4059A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7CFB85A8-3939-4058-B8F4-DC2CF193B0E5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7CFB85A8-3939-4058-B8F4-DC2CF193B0E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7CFB85A8-3939-4058-B8F4-DC2CF193B0E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7CFB85A8-3939-4058-B8F4-DC2CF193B0E5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{8E36635C-3EBE-4A1B-AC94-B6ACC7C92933} = {37C60F5D-C58A-4DC3-BE8D-5D5D9CEFCD4C}
+		{5AE215A6-6D46-4ECF-AF28-718E870FEFE4} = {8E36635C-3EBE-4A1B-AC94-B6ACC7C92933}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B44A463C-30A2-43C8-BB40-194037F5A990}
+	EndGlobalSection
+EndGlobal

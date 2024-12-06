@@ -1,0 +1,87 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Models\AdBanner.cs" />
+    <Compile Remove="Models\ArtCategoryMaster.cs" />
+    <Compile Remove="Models\ArtDomEvent.cs" />
+    <Compile Remove="Models\ArtistAchievements.cs" />
+    <Compile Remove="Models\ArtistCategoryMaster.cs" />
+    <Compile Remove="Models\ArtProduct.cs" />
+    <Compile Remove="Models\ArtProductImage.cs" />
+    <Compile Remove="Models\CartItem.cs" />
+    <Compile Remove="Models\ChatMessage.cs" />
+    <Compile Remove="Models\CMS.cs" />
+    <Compile Remove="Models\ContactUsEnquiry.cs" />
+    <Compile Remove="Models\ContactUsReply.cs" />
+    <Compile Remove="Models\GeneralSetting.cs" />
+    <Compile Remove="Models\Member.cs" />
+    <Compile Remove="Models\MemberPortfolio.cs" />
+    <Compile Remove="Models\Pager.cs" />
+    <Compile Remove="Models\PaintingFrame.cs" />
+    <Compile Remove="Models\RateAndReview.cs" />
+    <Compile Remove="Models\SalesOrder.cs" />
+    <Compile Remove="Models\SalesOrderItems.cs" />
+    <Compile Remove="Models\SearchKeywords.cs" />
+    <Compile Remove="Models\tiers.cs" />
+    <Compile Remove="Models\tiers2.cs" />
+    <Compile Remove="Repository\IAdBannerRepository.cs" />
+    <Compile Remove="Repository\IArtCategoryMasterRepository.cs" />
+    <Compile Remove="Repository\IArtDomEventRepository.cs" />
+    <Compile Remove="Repository\IArtistAchievementsRepository.cs" />
+    <Compile Remove="Repository\IArtistCategoryMasterRepository.cs" />
+    <Compile Remove="Repository\IArtProductImageRepository.cs" />
+    <Compile Remove="Repository\IArtProductRepository.cs" />
+    <Compile Remove="Repository\ICartItemRepository.cs" />
+    <Compile Remove="Repository\IChatMessageRepository.cs" />
+    <Compile Remove="Repository\ICMSRepository.cs" />
+    <Compile Remove="Repository\IContactUsEnquiryRepository.cs" />
+    <Compile Remove="Repository\IContactUsReplyRepository.cs" />
+    <Compile Remove="Repository\IGeneralSettingsRepository.cs" />
+    <Compile Remove="Repository\IMemberPortfolioRepository.cs" />
+    <Compile Remove="Repository\IMemberRepository.cs" />
+    <Compile Remove="Repository\IPaintingFrameRepository.cs" />
+    <Compile Remove="Repository\IPriceZonesRepository.cs" />
+    <Compile Remove="Repository\IRateAndReviewRepository.cs" />
+    <Compile Remove="Repository\ISalesOrderRepository.cs" />
+    <Compile Remove="Repository\ISearchKeywordRepository.cs" />
+    <Compile Remove="Repository\ITiersRepository.cs" />
+    <Compile Remove="Services\IAdBannerService.cs" />
+    <Compile Remove="Services\IArtCategoryMasterService.cs" />
+    <Compile Remove="Services\IArtDomEventService.cs" />
+    <Compile Remove="Services\IArtistAchievementsService.cs" />
+    <Compile Remove="Services\IArtistCategoryMasterService.cs" />
+    <Compile Remove="Services\IArtProductImageService.cs" />
+    <Compile Remove="Services\IArtProductService.cs" />
+    <Compile Remove="Services\ICartItemService.cs" />
+    <Compile Remove="Services\IChatMessageService.cs" />
+    <Compile Remove="Services\ICMSService.cs" />
+    <Compile Remove="Services\IContactUsEnquiryService.cs" />
+    <Compile Remove="Services\IContactUsReplyService.cs" />
+    <Compile Remove="Services\IFileUploader.cs" />
+    <Compile Remove="Services\IGeneralSettingsService.cs" />
+    <Compile Remove="Services\IMemberPortfolioService.cs" />
+    <Compile Remove="Services\IMemberService.cs" />
+    <Compile Remove="Services\IPaintingFrameService.cs" />
+    <Compile Remove="Services\IPriceZonesService.cs" />
+    <Compile Remove="Services\IRateAndReviewService.cs" />
+    <Compile Remove="Services\ISalesOrderService.cs" />
+    <Compile Remove="Services\ISearchKeywordService.cs" />
+    <Compile Remove="Services\ITiersService.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Dapper.Contrib" Version="2.0.30" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+    <PackageReference Include="WinSCP" Version="5.19.5" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Attributes\" />
+    <Folder Include="Models\ServiceModels\SmartSheet\" />
+  </ItemGroup>
+
+</Project>
