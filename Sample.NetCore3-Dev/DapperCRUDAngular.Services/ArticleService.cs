@@ -60,10 +60,9 @@ namespace DapperCRUDAngular.Services
             return true;
 
         }
-        public async Task<IEnumerable<ArticleDto>> GetArticlesAsync()
+        public async Task<IEnumerable<ArticleDto>> GetArticlesWithFacetsAndMultimediaAsync()
         {
             return await _articleRepository.GetArticlesWithFacetsAndMultimediaAsync();
         }
-
     }
 }
