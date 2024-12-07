@@ -18,16 +18,14 @@ namespace DapperCRUDAngular.Services
 
         private readonly HttpClient _httpClient;
         private readonly IArticleRepository _articleRepository;
-        private readonly ApiSettings _apiSettings;
         public ArticleService(HttpClient httpClient, IArticleRepository articleRepository, IOptions<ApiSettings> apiSettings)
         {
             _httpClient = httpClient;
             _articleRepository = articleRepository;
-            _apiSettings = apiSettings.Value;
         }
         public async Task<bool> FetchAndSaveArticles(string apiKey)
         {
-            var url = $"https://api.nytimes.com/svc/topstories/v2/home.json?api-key={_apiSettings.ApiKey}";
+            var url = $"https://api.nytimes.com/svc/topstories/v2/home.json?api-key={apiKey}";
             var response = await _httpClient.GetAsync(url);
 
             if (response.IsSuccessStatusCode)
