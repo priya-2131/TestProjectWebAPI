@@ -9,6 +9,7 @@ using DapperCRUDAngular.Abstraction.Services;
 using DapperCRUDAngular.Abstraction.Repository;
 using DapperCRUDAngular.InfraStructure.Repository;
 using DapperCRUDAngular.Services;
+using DapperCRUDAngular.Abstraction.Models;
 
 namespace PostalCodeAPI
 {
@@ -24,6 +25,7 @@ namespace PostalCodeAPI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddHttpClient();
             services.AddControllers().AddNewtonsoftJson(); ;
             services.AddControllersWithViews().AddNewtonsoftJson();
             services.AddSwaggerGen(/*c=> { 
@@ -44,10 +46,13 @@ namespace PostalCodeAPI
             //services.AddTransient<IBaseRepository, BaseRepository>();
             //services.AddTransient<IBaseService, BaseService>();
             #endregion
-
+            services.Configure<ApiSettings>(Configuration.GetSection("ApiSettings"));
             #region Data Transformation           
             services.AddTransient<IEmployeeDetailsService, EmployeeDetailsService>();
+            services.AddTransient<IArticleService, ArticleService>();
             services.AddTransient<IEmployeeDetailsRepository, EmployeeDetailsRepository>();
+            services.AddTransient<IArticleRepository, ArticleRepository>();
+
             #endregion
         }
 
