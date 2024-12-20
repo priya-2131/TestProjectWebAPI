@@ -9,7 +9,7 @@ namespace DapperCRUDAngular.Abstraction.Services
 {
    public interface IArticleService
     {
-        Task<bool> FetchAndSaveArticles(string apiKey);
+        Task<ApiResponse> FetchAndSaveArticles(string apiKey);
         Task<IEnumerable<ArticleDto>> GetArticlesWithFacetsAndMultimediaAsync();
     }
 }

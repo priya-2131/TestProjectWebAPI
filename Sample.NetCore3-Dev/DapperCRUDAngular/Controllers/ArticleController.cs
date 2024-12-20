@@ -20,9 +20,9 @@ namespace DapperCRUDAngular.Controllers
         }
 
         [HttpPost("SubmitArticle")]
-        public async Task<ActionResult<bool>> FetchAndSaveArticles(string apiKey)
+        public async Task<ActionResult<ApiResponse>> FetchAndSaveArticles(string apiKey)
         {
-            bool articleResponse = await _articleService.FetchAndSaveArticles(apiKey);
+            ApiResponse articleResponse = await _articleService.FetchAndSaveArticles(apiKey);
             return StatusCode(200, articleResponse);
         }
 

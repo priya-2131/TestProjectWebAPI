@@ -23,41 +23,42 @@ namespace DapperCRUDAngular.Services
             _httpClient = httpClient;
             _articleRepository = articleRepository;
         }
-        public async Task<bool> FetchAndSaveArticles(string apiKey)
+        public async Task<ApiResponse> FetchAndSaveArticles(string apiKey)
         {
             var url = $"https://api.nytimes.com/svc/topstories/v2/home.json?api-key={apiKey}";
             var response = await _httpClient.GetAsync(url);
+            var apiResponse = new ApiResponse();
 
             if (response.IsSuccessStatusCode)
             {
                 var jsonResponse = await response.Content.ReadAsStringAsync();
-                var apiResponse = JsonConvert.DeserializeObject<ApiResponse>(jsonResponse);
+                 apiResponse = JsonConvert.DeserializeObject<ApiResponse>(jsonResponse);
 
-                if (apiResponse?.Results != null)
-                {
-                    foreach (var article in apiResponse.Results)
-                    {
-                        // Insert Article
-                        var articleId = await _articleRepository.InsertArticleAsync(article);
+                //if (apiResponse?.Results != null)
+                //{
+                //    foreach (var article in apiResponse.Results)
+                //    {
+                //        // Insert Article
+                //        var articleId = await _articleRepository.InsertArticleAsync(article);
 
-                        // Insert Article Facets
-                        foreach (var desFacet in article.DesFacet)
-                        {
-                            await _articleRepository.InsertArticleFacetAsync(articleId, desFacet,
-                                string.Join(",", article.OrgFacet),
-                                string.Join(",", article.PerFacet),
-                                string.Join(",", article.GeoFacet));
-                        }
+                //        // Insert Article Facets
+                //        foreach (var desFacet in article.DesFacet)
+                //        {
+                //            await _articleRepository.InsertArticleFacetAsync(articleId, desFacet,
+                //                string.Join(",", article.OrgFacet),
+                //                string.Join(",", article.PerFacet),
+                //                string.Join(",", article.GeoFacet));
+                //        }
 
-                        // Insert Multimedia
-                        foreach (var multimedia in article.Multimedia)
-                        {
-                            await _articleRepository.InsertMultimediaAsync(articleId, multimedia);
-                        }
-                    }
-                }
+                //        // Insert Multimedia
+                //        foreach (var multimedia in article.Multimedia)
+                //        {
+                //            await _articleRepository.InsertMultimediaAsync(articleId, multimedia);
+                //        }
+                //    }
+                //}
             }
-            return true;
+            return apiResponse;
 
         }
         public async Task<IEnumerable<ArticleDto>> GetArticlesWithFacetsAndMultimediaAsync()
