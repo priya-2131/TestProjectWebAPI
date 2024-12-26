@@ -20,9 +20,18 @@ namespace DapperCRUDAngular.Controllers
         }
 
         [HttpPost("SubmitArticle")]
-        public async Task<ActionResult<bool>> FetchAndSaveArticles(string apiKey)
+        public async Task<ActionResult<ApiResponse>> FetchAndSaveArticles(string apiKey)
         {
-            bool articleResponse = await _articleService.FetchAndSaveArticles(apiKey);
+            ApiResponse articleResponse = await _articleService.FetchAndSaveArticles(apiKey);
+            if (!string.IsNullOrEmpty(articleResponse.ErrorMessage))
+            {
+                if (articleResponse.ErrorMessage.Contains("API key is not valid"))
+                {
+                    return StatusCode(401, new { message = articleResponse.ErrorMessage }); // Unauthorized
+                }
+
+                return StatusCode(400, new { message = articleResponse.ErrorMessage }); // Bad Request for other errors
+            }
             return StatusCode(200, articleResponse);
         }
 

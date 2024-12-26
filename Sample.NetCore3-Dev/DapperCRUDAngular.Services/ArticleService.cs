@@ -18,48 +18,67 @@ namespace DapperCRUDAngular.Services
 
         private readonly HttpClient _httpClient;
         private readonly IArticleRepository _articleRepository;
+        private readonly ApiSettings _apiSettings;
         public ArticleService(HttpClient httpClient, IArticleRepository articleRepository, IOptions<ApiSettings> apiSettings)
         {
             _httpClient = httpClient;
             _articleRepository = articleRepository;
+            _apiSettings = apiSettings.Value;
         }
-        public async Task<bool> FetchAndSaveArticles(string apiKey)
+        public async Task<ApiResponse> FetchAndSaveArticles(string apikey)
         {
-            var url = $"https://api.nytimes.com/svc/topstories/v2/home.json?api-key={apiKey}";
-            var response = await _httpClient.GetAsync(url);
+            var apiResponse = new ApiResponse();
+            var configuredApiKey = _apiSettings.ApiKey;          
+            var url = _apiSettings.ApiUrl;
+            //if (configuredApiKey != apikey)
+            //{
+            //    return new ApiResponse
+            //    {
+            //        ErrorMessage = $"API key is not valid"
+            //    };
+            //}
 
-            if (response.IsSuccessStatusCode)
+            try
             {
-                var jsonResponse = await response.Content.ReadAsStringAsync();
-                var apiResponse = JsonConvert.DeserializeObject<ApiResponse>(jsonResponse);
+                var fullUrl = $"{url}?api-key={apikey}";
+                var response = await _httpClient.GetAsync(fullUrl);
 
-                if (apiResponse?.Results != null)
+                if (!response.IsSuccessStatusCode)
                 {
-                    foreach (var article in apiResponse.Results)
+                    if (response.StatusCode == System.Net.HttpStatusCode.Unauthorized)
                     {
-                        // Insert Article
-                        var articleId = await _articleRepository.InsertArticleAsync(article);
-
-                        // Insert Article Facets
-                        foreach (var desFacet in article.DesFacet)
+                        return new ApiResponse
                         {
-                            await _articleRepository.InsertArticleFacetAsync(articleId, desFacet,
-                                string.Join(",", article.OrgFacet),
-                                string.Join(",", article.PerFacet),
-                                string.Join(",", article.GeoFacet));
-                        }
+                            ErrorMessage = $"API key is not valid."
+                        };
 
-                        // Insert Multimedia
-                        foreach (var multimedia in article.Multimedia)
+                    }
+                    else
+                    {
+                        return new ApiResponse
                         {
-                            await _articleRepository.InsertMultimediaAsync(articleId, multimedia);
-                        }
+                            ErrorMessage = $"Failed to fetch articles. Status code: {response.StatusCode}."
+                        };
                     }
                 }
-            }
-            return true;
 
+                var jsonResponse = await response.Content.ReadAsStringAsync();
+                apiResponse = JsonConvert.DeserializeObject<ApiResponse>(jsonResponse);
+
+                // Validate and save articles only if the results are not null
+                
+            }
+            catch (Exception ex)
+            {
+                return new ApiResponse
+                {
+                    ErrorMessage = $"An error occurred while fetching articles: {ex.Message}"
+                };
+            }
+
+            return apiResponse;
         }
+
         public async Task<IEnumerable<ArticleDto>> GetArticlesWithFacetsAndMultimediaAsync()
         {
             return await _articleRepository.GetArticlesWithFacetsAndMultimediaAsync();
