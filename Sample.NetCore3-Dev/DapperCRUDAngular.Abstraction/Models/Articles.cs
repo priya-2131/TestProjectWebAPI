@@ -14,6 +14,7 @@ namespace DapperCRUDAngular.Abstraction.Models
         public string Section { get; set; }
         public string LastUpdated { get; set; }
         public int NumResults { get; set; }
+        public string ErrorMessage { get; set; }
         public List<ArticleResult> Results { get; set; }
     }
 

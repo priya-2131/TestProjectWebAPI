@@ -18,49 +18,67 @@ namespace DapperCRUDAngular.Services
 
         private readonly HttpClient _httpClient;
         private readonly IArticleRepository _articleRepository;
+        private readonly ApiSettings _apiSettings;
         public ArticleService(HttpClient httpClient, IArticleRepository articleRepository, IOptions<ApiSettings> apiSettings)
         {
             _httpClient = httpClient;
             _articleRepository = articleRepository;
+            _apiSettings = apiSettings.Value;
         }
-        public async Task<ApiResponse> FetchAndSaveArticles(string apiKey)
+        public async Task<ApiResponse> FetchAndSaveArticles(string apikey)
         {
-            var url = $"https://api.nytimes.com/svc/topstories/v2/home.json?api-key={apiKey}";
-            var response = await _httpClient.GetAsync(url);
             var apiResponse = new ApiResponse();
+            var configuredApiKey = _apiSettings.ApiKey;          
+            var url = _apiSettings.ApiUrl;
+            //if (configuredApiKey != apikey)
+            //{
+            //    return new ApiResponse
+            //    {
+            //        ErrorMessage = $"API key is not valid"
+            //    };
+            //}
 
-            if (response.IsSuccessStatusCode)
+            try
             {
+                var fullUrl = $"{url}?api-key={apikey}";
+                var response = await _httpClient.GetAsync(fullUrl);
+
+                if (!response.IsSuccessStatusCode)
+                {
+                    if (response.StatusCode == System.Net.HttpStatusCode.Unauthorized)
+                    {
+                        return new ApiResponse
+                        {
+                            ErrorMessage = $"API key is not valid."
+                        };
+
+                    }
+                    else
+                    {
+                        return new ApiResponse
+                        {
+                            ErrorMessage = $"Failed to fetch articles. Status code: {response.StatusCode}."
+                        };
+                    }
+                }
+
                 var jsonResponse = await response.Content.ReadAsStringAsync();
-                 apiResponse = JsonConvert.DeserializeObject<ApiResponse>(jsonResponse);
+                apiResponse = JsonConvert.DeserializeObject<ApiResponse>(jsonResponse);
 
-                //if (apiResponse?.Results != null)
-                //{
-                //    foreach (var article in apiResponse.Results)
-                //    {
-                //        // Insert Article
-                //        var articleId = await _articleRepository.InsertArticleAsync(article);
-
-                //        // Insert Article Facets
-                //        foreach (var desFacet in article.DesFacet)
-                //        {
-                //            await _articleRepository.InsertArticleFacetAsync(articleId, desFacet,
-                //                string.Join(",", article.OrgFacet),
-                //                string.Join(",", article.PerFacet),
-                //                string.Join(",", article.GeoFacet));
-                //        }
-
-                //        // Insert Multimedia
-                //        foreach (var multimedia in article.Multimedia)
-                //        {
-                //            await _articleRepository.InsertMultimediaAsync(articleId, multimedia);
-                //        }
-                //    }
-                //}
+                // Validate and save articles only if the results are not null
+                
             }
-            return apiResponse;
+            catch (Exception ex)
+            {
+                return new ApiResponse
+                {
+                    ErrorMessage = $"An error occurred while fetching articles: {ex.Message}"
+                };
+            }
 
+            return apiResponse;
         }
+
         public async Task<IEnumerable<ArticleDto>> GetArticlesWithFacetsAndMultimediaAsync()
         {
             return await _articleRepository.GetArticlesWithFacetsAndMultimediaAsync();
