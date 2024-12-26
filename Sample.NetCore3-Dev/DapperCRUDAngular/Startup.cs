@@ -63,7 +63,11 @@ namespace PostalCodeAPI
             {
                 app.UseDeveloperExceptionPage();
             }
-            app.UseCors("CorsPolicy");
+            app.UseCors(builder =>
+    builder.WithOrigins("http://localhost:63889")
+           .AllowAnyHeader()
+           .AllowAnyMethod());
+
             app.UseSwagger();
             app.UseSwaggerUI(c =>
             {
